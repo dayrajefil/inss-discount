@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    image: inss-discount_web
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ".:/rails"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - RAILS_ENV=development
+      - REDIS_URL=redis://redis:6379/1
+      - DATABASE_URL=postgresql://postgres:postgres@db/inss_discount_development
+    networks:
+      - inss-discount-network
+
+  db:
+    image: postgres:16.4
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - inss-discount-network
+
+  redis:
+    image: redis:latest
+    networks:
+      - inss-discount-network
+
+volumes:
+  postgres_data:
+
+networks:
+  inss-discount-network:
+    driver: bridge
