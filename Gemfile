@@ -42,13 +42,21 @@ gem 'devise'
 
 gem 'decorators'
 
+gem 'draper'
+
 gem 'sass-rails'
+
+gem 'simple_form'
+
+gem 'jquery-mask-plugin', '~> 1.14', '>= 1.14.16'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'faker'
 end
 
 group :development do
+  gem 'byebug'
   gem 'web-console'
 end
 

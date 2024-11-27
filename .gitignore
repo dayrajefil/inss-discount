@@ -36,3 +36,4 @@
 
 # Ignore .env files (except .env*.erb templates)
 .env
+.byebug_history

@@ -6,7 +6,7 @@ services:
     image: inss-discount_web
     command: ["tail", "-f", "/dev/null"]
     volumes:
-      - ".:/rails"
+      - ".:/workdir"
     ports:
       - "3000:3000"
     depends_on:

@@ -1,2 +1,8 @@
 Style/FrozenStringLiteralComment:
-  Enabled: true
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
