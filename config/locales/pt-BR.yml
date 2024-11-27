@@ -1,0 +1,23 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d/%m"
+      long: "%A, %d de %B de %Y"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m %H:%M"
+      long: "%A, %d de %B de %Y %H:%M:%S"
+
+  number:
+    currency:
+      format:
+        unit: "R$"
+        separator: ","
+        delimiter: "."
+
+  message:
+    alert:
+      confirm_delete: 'Tem certeza que quer deletar esse registro?'
