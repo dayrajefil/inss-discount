@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# lib/tasks/prepare_docker.rake
 
 namespace :docker do
   desc 'Remove all containers, images, and rebuild the environment'
@@ -16,6 +16,9 @@ namespace :docker do
     system('docker network prune -f')
 
     puts 'Rebuilding containers...'
-    system('docker-compose up --build')
+    system('docker-compose up -d --build')
+
+    puts 'Docker environment is ready and running in detached mode.'
+    puts 'run docker exec -it inss-discount-web-1 bash'
   end
 end

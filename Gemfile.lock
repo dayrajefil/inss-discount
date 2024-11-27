@@ -152,10 +152,6 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.0.3)
-      actionpack (>= 6.0.0)
-      activesupport (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.7.2)
     irb (1.14.1)
       rdoc (>= 4.0.0)
@@ -163,8 +159,6 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jquery-mask-plugin (1.15.0)
-      railties (> 3.1)
     json (2.8.2)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -230,6 +224,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.8)
+    rack-proxy (0.7.7)
+      rack
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -331,6 +327,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    semantic_range (3.1.0)
     sidekiq (7.3.6)
       connection_pool (>= 2.3.0)
       logger
@@ -367,6 +364,11 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webpacker (5.4.4)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -402,9 +404,7 @@ DEPENDENCIES
   draper
   faker
   i18n
-  importmap-rails
   jbuilder
-  jquery-mask-plugin (~> 1.14, >= 1.14.16)
   kaminari
   pg (~> 1.1)
   puma (>= 5.0)
@@ -421,6 +421,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  webpacker (~> 5.4)
 
 RUBY VERSION
    ruby 3.3.0p0

@@ -10,7 +10,7 @@ gem 'pg', '~> 1.1'
 
 gem 'puma', '>= 5.0'
 
-gem 'importmap-rails'
+gem 'webpacker', '~> 5.4'
 
 gem 'turbo-rails'
 
@@ -47,8 +47,6 @@ gem 'draper'
 gem 'sass-rails'
 
 gem 'simple_form'
-
-gem 'jquery-mask-plugin', '~> 1.14', '>= 1.14.16'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
