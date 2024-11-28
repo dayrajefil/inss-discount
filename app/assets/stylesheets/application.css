@@ -1,5 +1,10 @@
 /* app/assets/stylesheets/application.css */
 
+.error {
+  color: rgb(199, 0, 0);
+  font-size: 15px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

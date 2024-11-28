@@ -4,12 +4,13 @@ require 'net/http'
 require 'json'
 
 namespace :db do
-  desc 'Initializes 15 proponents with addresses'
+  desc 'Initializes proponents with addresses'
   task prepare_data: :environment do
     require 'faker'
     zip_codes = %w[
-      03122-050 13611-412 13611-412 09411-180 13843-180 18277-540 13201-057
-      07145-245 05797-190 02960-100 11724-555 11724-555 13451-095 18078-425 08574-500
+      03122-050 13611-412 13611-412 09411-180 13843-180
+      18277-540 13201-057 07145-245 05797-190 02960-100
+      11724-555 11724-555 13451-095 18078-425 08574-500
     ]
 
     Faker::Config.locale = 'pt-BR'
@@ -43,4 +44,17 @@ namespace :db do
 
     puts 'Successfully created data!'
   end
+
+  # desc 'Create an admin user with password 123456'
+  # task create_admin_user: :environment do
+  #   admin_email = 'admin@example.com'
+
+  #   User.create!(
+  #     email: admin_email,
+  #     password: '123456',
+  #     password_confirmation: '123456'
+  #   )
+
+  #   puts 'Usuário admin criado com sucesso!'
+  # end
 end

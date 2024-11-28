@@ -1,13 +1,7 @@
 <%= simple_form_for(@proponent) do |f| %>
-  <% if flash[:alert] %>
+  <% if @proponent.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <h4 class="alert-heading">Erro ao salvar o proponente</h4>
-
-      <ul>
-        <% flash[:alert].each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
     </div>
   <% end %>
 

@@ -21,8 +21,7 @@ class ProponentsController < ApplicationController
         format.html { redirect_to proponents_path, notice: t('proponents.notices.create') }
         format.json { render :index, status: :created }
       else
-        flash[:alert] = @proponent.errors.full_messages
-        format.html { redirect_to new_proponent_path }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @proponent.errors, status: :unprocessable_entity }
       end
     end
@@ -34,8 +33,7 @@ class ProponentsController < ApplicationController
         format.html { redirect_to proponents_path, notice: t('proponents.notices.update') }
         format.json { render :index, status: :ok }
       else
-        flash[:alert] = @proponent.errors.full_messages
-        format.html { redirect_to edit_proponent_path(@proponent.id) }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @proponent.errors, status: :unprocessable_entity }
       end
     end
@@ -57,6 +55,8 @@ class ProponentsController < ApplicationController
   end
 
   def transform_to_type
+    return unless params[:proponent][:salary].present?
+
     params[:proponent][:salary] = params[:proponent][:salary] = params[:proponent][:salary].tr('.', '').tr(',', '.')
   end
 

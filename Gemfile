@@ -50,6 +50,7 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
@@ -60,5 +61,6 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end

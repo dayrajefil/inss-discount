@@ -136,6 +136,11 @@ GEM
     drb (2.2.1)
     erubi (1.13.0)
     execjs (2.10.0)
+    factory_bot (6.5.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
+      railties (>= 5.0.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.0-aarch64-linux-gnu)
@@ -246,6 +251,10 @@ GEM
       activesupport (= 7.1.5)
       bundler (>= 1.15.0)
       railties (= 7.1.5)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -402,6 +411,7 @@ DEPENDENCIES
   decorators
   devise
   draper
+  factory_bot_rails
   faker
   i18n
   jbuilder
@@ -409,6 +419,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.4)
+  rails-controller-testing
   redis
   rspec-rails
   rubocop
