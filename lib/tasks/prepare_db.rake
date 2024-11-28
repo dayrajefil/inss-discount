@@ -44,17 +44,4 @@ namespace :db do
 
     puts 'Successfully created data!'
   end
-
-  # desc 'Create an admin user with password 123456'
-  # task create_admin_user: :environment do
-  #   admin_email = 'admin@example.com'
-
-  #   User.create!(
-  #     email: admin_email,
-  #     password: '123456',
-  #     password_confirmation: '123456'
-  #   )
-
-  #   puts 'Usuário admin criado com sucesso!'
-  # end
 end

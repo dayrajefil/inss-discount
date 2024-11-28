@@ -10,7 +10,7 @@ gem 'pg', '~> 1.1'
 
 gem 'puma', '>= 5.0'
 
-gem 'webpacker', '~> 5.4'
+gem 'importmap-rails'
 
 gem 'turbo-rails'
 
