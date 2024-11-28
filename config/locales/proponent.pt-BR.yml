@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      proponent:
+        one: Proponente
+        other: Proponentes
+    attributes:
+      proponent:
+        name: Nome
+        birthdate: Data de Nascimento
+        phone: Telefone
+        salary: Salário
+        address: Endereço
+        actions: Ação
+
+  proponents:
+      notices:
+        create: Proponente criado com sucesso!
+        update: Proponente atualizado com sucesso!
+        destroy: Proponente deletado com sucesso!
+
+      index:
+        title: Proponentes
+        action:
+          new: Criar proponente
+      new:
+        title: Novo proponente
+      edit:
+        title: Atualizando proponente

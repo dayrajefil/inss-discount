@@ -1,0 +1,30 @@
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<%= title_index('.title', { label: t('.action.new'), path: new_proponent_path }) %>
+
+<div id="proponents">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <% ProponentDecorator.header_attributes.each do |field| %>
+          <th><%= t("activerecord.attributes.proponent.#{field}") %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @proponents.each do |proponent| %>
+        <tr id="<%= dom_id(proponent) %>">
+          <% ProponentDecorator.header_attributes.each do |field| %>
+            <td><%= proponent.decorate.public_send(field) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @proponents %>

@@ -1,16 +1,36 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-@import "bootstrap";
+/* app/assets/stylesheets/application.css */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination a, .pagination em {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.pagination .current {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.pagination .current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  font-size: 14px;
+}

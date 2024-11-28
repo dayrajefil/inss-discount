@@ -1,0 +1,73 @@
+<%= simple_form_for(@proponent) do |f| %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">Erro ao salvar o proponente</h4>
+
+      <ul>
+        <% flash[:alert].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name, required: true, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.input :birthdate, as: :string,
+                  input_html: { value: f.object.decorate.birthdate, class: 'form-control date-mask' } %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.input :phone, required: true, 
+            input_html: { class: 'form-control phone-mask' } %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.input :salary, as: :string, required: true, input_html: { value: f.object.decorate.salary_without_unit, class: 'form-control salary-mask' } %>
+    </div>
+  </div>
+
+  <fieldset>
+    <legend><%= t('activerecord.models.address.one') %></legend>
+
+    <%= f.fields_for :address do |a| %>
+      <div class="row">
+        <div class="col-md-2">
+          <%= a.input :zip_code, required: true, input_html: { class: 'form-control zip-code-mask' } %>
+        </div>
+
+        <div class="col-md-4">
+          <%= a.input :street, readonly: true, input_html: { class: 'form-control' } %>
+        </div>
+
+        <div class="col-md-2">
+          <%= a.input :number, required: true, input_html: { class: 'form-control' } %>
+        </div>
+
+        <div class="col-md-4">
+          <%= a.input :complement, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <%= a.input :neighborhood, readonly: true, input_html: { class: 'form-control' } %>
+        </div>
+
+        <div class="col-md-2">
+          <%= a.input :city, readonly: true, input_html: { class: 'form-control' } %>
+        </div>
+
+        <div class="col-md-2">
+          <%= a.input :state, readonly: true, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <%= submit_button f %>
+<% end %>
