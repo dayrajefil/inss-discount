@@ -76,7 +76,7 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   Os testes são executados usando RSpec. Para rodar a suíte de testes, execute:
 
 ```
-rspec
+RAILS_ENV=test rspec
 ```
 
 ## Serviços

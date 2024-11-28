@@ -49,13 +49,13 @@ gem 'sass-rails'
 gem 'simple_form'
 
 group :development, :test do
+  gem 'byebug'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
   gem 'faker'
 end
 
 group :development do
-  gem 'byebug'
   gem 'web-console'
 end
 
