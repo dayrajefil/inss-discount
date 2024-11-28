@@ -18,8 +18,8 @@ class ProponentDecorator < Draper::Decorator
   end
 
   def actions
-    edit_link = h.link_to('Edit', h.edit_proponent_path(object), class: 'btn btn-secondary btn-sm')
-    delete_link = h.button_to('Delete', object, method: :delete, data: {
+    edit_link = h.link_to(I18n.t('actions.edit'), h.edit_proponent_path(object), class: 'btn btn-secondary btn-sm')
+    delete_link = h.button_to(I18n.t('actions.delete'), object, method: :delete, data: {
                                 turbo_confirm: I18n.t('messages.confirm.delete')
                               }, class: 'btn btn-danger btn-sm')
 
