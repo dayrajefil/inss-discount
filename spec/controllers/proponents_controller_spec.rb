@@ -115,4 +115,21 @@ RSpec.describe ProponentsController, type: :controller do
       expect(response).to redirect_to(proponents_path)
     end
   end
+
+  describe 'POST #inss_amount' do
+    context 'when salary is valid' do
+      let(:valid_salary) { '5000,00' }
+      let(:expected_inss_amount) { InssCalculator.calculate(valid_salary.to_f) }
+
+      before do
+        post :inss_amount, params: { proponent: { salary: valid_salary } }
+      end
+
+      it 'returns the correct INSS amount in JSON format' do
+        expect(response).to have_http_status(:success)
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(JSON.parse(response.body)).to eq({ 'inss_amount' => ' 558,95' })
+      end
+    end
+  end
 end

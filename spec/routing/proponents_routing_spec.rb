@@ -29,5 +29,9 @@ RSpec.describe ProponentsController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/proponents/1').to route_to('proponents#destroy', id: '1')
     end
+
+    it 'routes to #inss_amount' do
+      expect(post: '/proponents/inss_amount').to route_to('proponents#inss_amount')
+    end
   end
 end
