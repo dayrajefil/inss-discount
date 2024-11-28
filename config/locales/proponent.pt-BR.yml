@@ -10,6 +10,7 @@ pt-BR:
         birthdate: Data de Nascimento
         phone: Telefone
         salary: Salário
+        inss: INSS
         address: Endereço
         actions: Ação
 

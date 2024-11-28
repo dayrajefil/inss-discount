@@ -7,6 +7,7 @@ if (zipCodeInput) {
 const salaryInput = document.querySelector('[id$=salary]');
 if (salaryInput) {
   applySalaryMask(salaryInput);
+  getInssAmount(salaryInput);
 }
 
 const birthdateInput = document.querySelector('[id$=birthdate]');
@@ -74,6 +75,32 @@ function applySalaryMask(input) {
     input.value = formattedIntegerPart + ',' + decimalPart;
   });
 }
+
+function getInssAmount(input) {
+  input.addEventListener('blur', function () {
+    if (input.value.length > 0) {
+      fetch('/proponents/inss_amount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+        },
+        body: JSON.stringify({ proponent: { salary: input.value } })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.inss_amount) {
+          document.querySelector('[id$=inss]').value = data.inss_amount;
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao buscar o INSS:', error);
+        alert('Erro ao calcular o INSS. Tente novamente mais tarde.');
+      });
+    }
+  });
+}
+
 
 function applyDateMask(input) {
   input.addEventListener('input', function () {

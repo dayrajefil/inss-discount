@@ -1,6 +1,8 @@
 class ProponentsController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+
   before_action :set_proponent, only: %i[edit update destroy]
-  before_action :transform_to_type, only: %i[create update]
+  before_action :transform_to_type, only: %i[create update inss_amount]
 
   def index
     @proponents = Proponent.all.page(params[:page]).per(5)
@@ -48,6 +50,12 @@ class ProponentsController < ApplicationController
     end
   end
 
+  def inss_amount
+    inss_amount = InssCalculator.calculate(params[:proponent][:salary].to_f)
+
+    render json: { inss_amount: number_to_currency(inss_amount, unit: '') }
+  end
+
   private
 
   def set_proponent
@@ -57,12 +65,12 @@ class ProponentsController < ApplicationController
   def transform_to_type
     return unless params[:proponent][:salary].present?
 
-    params[:proponent][:salary] = params[:proponent][:salary] = params[:proponent][:salary].tr('.', '').tr(',', '.')
+    params[:proponent][:salary] = params[:proponent][:salary].tr('.', '').tr(',', '.')
   end
 
   def proponent_params
     params.require(:proponent).permit(
-      :name, :birthdate, :phone, :salary, :address_id, address_attributes: %i[
+      :name, :birthdate, :phone, :salary, :inss, :address_id, address_attributes: %i[
         zip_code street number complement neighborhood city state
       ]
     )

@@ -17,6 +17,10 @@ class ProponentDecorator < Draper::Decorator
     h.number_to_currency(object.salary, unit: '', delimiter: '.', separator: ',')
   end
 
+  def inss_without_unit
+    h.number_to_currency(object.inss, unit: '', delimiter: '.', separator: ',')
+  end
+
   def actions
     edit_link = h.link_to(I18n.t('actions.edit'), h.edit_proponent_path(object), class: 'btn btn-secondary btn-sm')
     delete_link = h.button_to(I18n.t('actions.delete'), object, method: :delete, data: {

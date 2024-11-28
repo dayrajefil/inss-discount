@@ -17,6 +17,8 @@ module InssDiscount
     config.i18n.locale = 'pt-BR'
     config.i18n.load_path += Dir["#{config.root}/config/locales/*.yml"]
 
+    config.autoload_paths += %W(#{config.root}/app/services)
+
     config.encoding = 'utf-8'
   end
 end
