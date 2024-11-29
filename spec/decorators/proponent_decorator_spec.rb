@@ -7,7 +7,7 @@ RSpec.describe ProponentDecorator, type: :decorator do
 
   describe '.header_attributes' do
     it 'returns the correct list of attributes' do
-      expected_attributes = [:name, :birthdate, :phone, :salary, :address, :actions]
+      expected_attributes = %i[name birthdate phone salary address actions]
       expect(ProponentDecorator.header_attributes).to eq(expected_attributes)
     end
   end

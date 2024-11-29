@@ -405,7 +405,7 @@ DEPENDENCIES
   rails-controller-testing
   redis
   rspec-rails
-  rubocop
+  rubocop (~> 1.69)
   sass-rails
   selenium-webdriver
   sidekiq

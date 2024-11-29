@@ -15,11 +15,11 @@ RSpec.describe ReportsController, type: :controller do
       get :proponent_salary
 
       expect(assigns(:salary_groups)).to eq([
-        { label: "Até R$ 1.045,00", count: 1 },
-        { label: "De R$ 1.045,01 a R$ 2.089,60", count: 1 },
-        { label: "De R$ 2.089,61 até R$ 3.134,40", count: 1 },
-        { label: "De R$ 3.134,41 até R$ 6.101,06", count: 2 }
-      ])
+                                              { label: 'Até R$ 1.045,00', count: 1 },
+                                              { label: 'De R$ 1.045,01 a R$ 2.089,60', count: 1 },
+                                              { label: 'De R$ 2.089,61 até R$ 3.134,40', count: 1 },
+                                              { label: 'De R$ 3.134,41 até R$ 6.101,06', count: 2 }
+                                            ])
     end
   end
 end
