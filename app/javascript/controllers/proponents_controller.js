@@ -13,6 +13,11 @@ if (salaryInput) {
   getInssAmount(salaryInput);
 }
 
+const inssInput = document.querySelector('[id$=inss]');
+if (inssInput) {
+  applySalaryMask(inssInput);
+}
+
 const birthdateInput = document.querySelector('[id$=birthdate]');
 if (birthdateInput) {
   applyDateMask(birthdateInput);

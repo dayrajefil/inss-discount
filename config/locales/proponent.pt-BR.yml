@@ -9,8 +9,9 @@ pt-BR:
         name: Nome
         birthdate: Data de Nascimento
         phone: Telefone
-        salary: Salário
+        salary: Salário Bt
         inss: INSS
+        discounted_salary: Salário Lq
         address: Endereço
         actions: Ação
 

@@ -12,20 +12,20 @@
 
     <div class="col-md-2">
       <%= f.input :birthdate, as: :string,
-                  input_html: { value: f.object.decorate.birthdate, class: 'form-control date-mask' } %>
+                  input_html: { value: f.object.decorate.birthdate, class: 'form-control' } %>
     </div>
 
     <div class="col-md-2">
       <%= f.input :phone, required: true, 
-            input_html: { class: 'form-control phone-mask' } %>
+            input_html: { class: 'form-control' } %>
     </div>
 
     <div class="col-md-2">
-      <%= f.input :salary, as: :string, required: true, input_html: { value: f.object.decorate.salary_without_unit, class: 'form-control salary-mask' } %>
+      <%= f.input :salary, as: :string, required: true, input_html: { value: f.object.decorate.salary_without_unit, class: 'form-control' } %>
     </div>
 
     <div class="col-md-2">
-      <%= f.input :inss, as: :string, readonly: true, input_html: { value: f.object.decorate.inss_without_unit, class: 'form-control salary-mask' } %>
+      <%= f.input :inss, as: :string, readonly: true, input_html: { value: f.object.decorate.inss_without_unit, class: 'form-control' } %>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
     <%= f.fields_for :address do |a| %>
       <div class="row">
         <div class="col-md-2">
-          <%= a.input :zip_code, required: true, input_html: { class: 'form-control zip-code-mask' } %>
+          <%= a.input :zip_code, required: true, input_html: { class: 'form-control' } %>
         </div>
 
         <div class="col-md-4">

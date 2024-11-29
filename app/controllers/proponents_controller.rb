@@ -20,6 +20,7 @@ class ProponentsController < ApplicationController
 
     respond_to do |format|
       if @proponent.save
+        CalculateDiscountedSalaryJob.perform_later(@proponent.id)
         format.html { redirect_to proponents_path, notice: t('proponents.notices.create') }
         format.json { render :index, status: :created }
       else
@@ -32,6 +33,7 @@ class ProponentsController < ApplicationController
   def update
     respond_to do |format|
       if @proponent.update(proponent_params)
+        CalculateDiscountedSalaryJob.perform_later(@proponent.id)
         format.html { redirect_to proponents_path, notice: t('proponents.notices.update') }
         format.json { render :index, status: :ok }
       else
@@ -63,9 +65,14 @@ class ProponentsController < ApplicationController
   end
 
   def transform_to_type
-    return unless params[:proponent][:salary].present?
+    if params[:proponent][:salary].present?
+      params[:proponent][:salary] =
+        params[:proponent][:salary].tr('.', '').tr(',', '.')
+    end
 
-    params[:proponent][:salary] = params[:proponent][:salary].tr('.', '').tr(',', '.')
+    return unless params[:proponent][:inss].present?
+
+    params[:proponent][:inss] = params[:proponent][:inss].tr('.', '').tr(',', '.')
   end
 
   def proponent_params

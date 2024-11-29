@@ -2,7 +2,7 @@ class ProponentDecorator < Draper::Decorator
   delegate_all
 
   def self.header_attributes
-    %i[name birthdate phone salary address actions]
+    %i[name birthdate phone salary inss discounted_salary address actions]
   end
 
   def birthdate
@@ -11,6 +11,14 @@ class ProponentDecorator < Draper::Decorator
 
   def salary
     h.number_to_currency(object.salary)
+  end
+
+  def inss
+    h.number_to_currency(object.inss)
+  end
+
+  def discounted_salary
+    h.number_to_currency(object.discounted_salary)
   end
 
   def salary_without_unit
