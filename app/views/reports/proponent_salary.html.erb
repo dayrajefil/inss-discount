@@ -1,5 +1,8 @@
 <%= title_form('.title') %>
 
+<canvas class='line-chart'></canvas>
+
+<br>
 <div id="reports-proponent-salary">
   <table class="table table-striped table-bordered">
     <thead>
@@ -18,3 +21,30 @@
     </tbody>
   </table>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  var ctx = document.querySelector('.line-chart');
+
+  var labels = <%= raw @salary_groups.pluck(:label).to_json %>;
+  var datas = <%= raw @salary_groups.pluck(:count).to_json %>;
+
+  var chartGraph = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Proponentes por Faixa Salarial',
+        data: datas
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
