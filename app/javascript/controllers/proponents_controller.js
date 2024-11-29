@@ -1,3 +1,6 @@
+import { Controller } from "@hotwired/stimulus"
+export default class extends Controller {}
+
 const zipCodeInput = document.querySelector('[id$=zip_code]');
 if (zipCodeInput) {
   applyCepMask(zipCodeInput);
