@@ -2,18 +2,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] || 'postgres' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'postgres' %>
+  host: <%= ENV['DATABASE_HOST'] || 'db' %>
 
 development:
   <<: *default
-  database: inss_discount_development
+  database: <%= ENV['DATABASE_URL'] || 'inss_discount_development' %>
 
 test:
   <<: *default
-  database: inss_discount_test
+  database: <%= ENV['DATABASE_URL_TEST'] || 'inss_discount_test' %>
 
 production:
   <<: *default
-  database: inss_discount_production
+  database: <%= ENV['DATABASE_URL_PRODUCTION'] || 'inss_discount_production' %>

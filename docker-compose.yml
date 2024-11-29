@@ -16,6 +16,7 @@ services:
       - RAILS_ENV=development
       - REDIS_URL=redis://redis:6379/1
       - DATABASE_URL=postgresql://postgres:postgres@db/inss_discount_development
+      - DATABASE_URL_TEST=postgresql://postgres:postgres@db/inss_discount_test
     networks:
       - inss-discount-network
 
