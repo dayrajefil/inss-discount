@@ -38,8 +38,6 @@ gem 'kaminari'
 
 gem 'i18n'
 
-gem 'devise'
-
 gem 'decorators'
 
 gem 'draper'

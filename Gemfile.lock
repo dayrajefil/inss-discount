@@ -88,7 +88,6 @@ GEM
     autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     base64 (0.2.0)
-    bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
@@ -119,12 +118,6 @@ GEM
       reline (>= 0.3.8)
     decorators (2.0.6)
       railties (>= 4.0.0, < 7.2)
-    devise (4.9.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
     diff-lcs (1.5.1)
     draper (4.0.2)
       actionpack (>= 5.0)
@@ -219,7 +212,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
-    orm_adapter (0.5.0)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
@@ -281,13 +273,10 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.11)
+    reline (0.5.12)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    responders (3.1.1)
-      actionpack (>= 5.2)
-      railties (>= 5.2)
     rexml (3.3.9)
     rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
@@ -316,7 +305,7 @@ GEM
       rubocop-ast (>= 1.36.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.36.1)
+    rubocop-ast (1.36.2)
       parser (>= 3.3.1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
@@ -367,8 +356,6 @@ GEM
     unicode-display_width (3.1.2)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
-    warden (1.2.9)
-      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -405,7 +392,6 @@ DEPENDENCIES
   chartjs-rails
   debug
   decorators
-  devise
   draper
   factory_bot_rails
   faker
