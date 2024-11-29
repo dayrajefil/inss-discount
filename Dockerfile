@@ -21,6 +21,9 @@ COPY Gemfile Gemfile.lock ./
 # Instalar dependências
 RUN bundle install
 
+# Instalar o Redis sem confirmação
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server
+
 # Copiar o restante da aplicação
 COPY . ./
 

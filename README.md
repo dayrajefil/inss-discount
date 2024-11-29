@@ -4,15 +4,15 @@ O projeto **inss-discount** é uma aplicação Rails para cálculo e gerenciamen
 
 ## Versões
 
-- **Ruby**: 3.3.6
+- **Ruby**: 3.3.0
 - **Rails**: 7.1.4
 
 ## Dependências
 - Docker 27.3.1
 - Docker Compose
-- Node.js (para o Bootstrap)
+- Node.js
 - PostgreSQL 16.4
-- Redis (para Sidekiq)
+- Redis
 
 ## Configuração
 
@@ -49,7 +49,8 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   - Derrubará todos os containers e volumes existentes
   - Limpará as imagens e containers não utilizados
   - Subirá os containers novamente com as configurações corretas
-  - Entre no ambiente Docker:
+
+  Entre no ambiente Docker:
 
   ```
   docker exec -it inss-discount-web-1 bash
@@ -84,5 +85,5 @@ RAILS_ENV=test rspec
   Job queues (Sidekiq): Para rodar os jobs do Sidekiq, você pode iniciar o container do Sidekiq com o comando:
 
 ```
-sidekiq
+bundle exec sidekiq
 ```
