@@ -81,10 +81,6 @@ RSpec.describe Proponent, type: :model do
   end
 
   describe 'scopes' do
-    before do
-      Proponent.destroy_all if Rails.env.test?
-    end
-
     it 'orders by created_at by default' do
       proponent1 = create(:proponent, created_at: 2.days.ago)
       proponent2 = create(:proponent, created_at: 1.day.ago)
