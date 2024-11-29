@@ -82,7 +82,7 @@ RSpec.describe Proponent, type: :model do
 
   describe 'scopes' do
     before do
-      Proponent.destroy_all
+      Proponent.destroy_all if Rails.env.test?
     end
 
     it 'orders by created_at by default' do

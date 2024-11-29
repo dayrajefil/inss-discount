@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      report:
+        proponents: Proponentes
+        salary_range: Faixa Salarial
+  reports:
+    proponent_salary:
+      title: 'Relatório de Proponentes por Faixa Salarial'
