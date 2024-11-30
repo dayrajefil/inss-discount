@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# A classe User herda de ApplicationRecord e integra-se com o sistema de autenticação
+# fornecido pelo Devise. Além disso, define validações para o campo `username`, garantindo
+# que ele seja único e siga um formato específico (somente letras minúsculas, pontos e underlines).
+#
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
