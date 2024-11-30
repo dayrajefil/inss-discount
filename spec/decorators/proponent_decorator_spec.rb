@@ -7,7 +7,7 @@ RSpec.describe ProponentDecorator, type: :decorator do
 
   describe '.header_attributes' do
     it 'returns the correct list of attributes' do
-      expected_attributes = %i[name birthdate phone salary address actions]
+      expected_attributes = %i[name birthdate phone salary inss discounted_salary address actions]
       expect(ProponentDecorator.header_attributes).to eq(expected_attributes)
     end
   end
@@ -32,6 +32,20 @@ RSpec.describe ProponentDecorator, type: :decorator do
     it 'returns salary with currency format' do
       proponent.update(salary: 1000)
       expect(decorated_proponent.salary).to eq('R$ 1.000,00')
+    end
+  end
+
+  describe '#inss' do
+    it 'returns inss with currency format' do
+      proponent.update(inss: 100)
+      expect(decorated_proponent.inss).to eq('R$ 100,00')
+    end
+  end
+
+  describe '#discounted_salary' do
+    it 'returns discounted_salary with currency format' do
+      proponent.update(discounted_salary: 900)
+      expect(decorated_proponent.discounted_salary).to eq('R$ 900,00')
     end
   end
 
