@@ -5,16 +5,35 @@ require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe '#submit_button' do
-    let(:form) { double('Form', submit: '<button type="submit" class="btn btn-secondary">Save</button>'.html_safe) }
+    let(:proponent) { build(:proponent) }
 
-    it 'renders a submit button with correct classes and text' do
-      allow(helper).to receive(:t).with('actions.save').and_return('Save')
+    context 'when title_key is not provided' do
+      it 'renders a submit button with the default text from t("actions.save")' do
+        allow(helper).to receive(:t).with('actions.save').and_return('Save')
 
-      result = helper.submit_button(form)
+        result = nil
 
-      expect(result).to include('<div class="d-flex justify-content-end my-2">')
-      expect(result).to include('<button type="submit" class="btn btn-secondary">Save</button>')
-      expect(result).to include('Save')
+        helper.simple_form_for(proponent, url: '/proponents/new') do |f|
+          result = helper.submit_button(f)
+        end
+
+        expect(result).to include('<div class="d-flex justify-content-end my-2">')
+        expect(result).to include('<input type="submit" name="commit" value="Save" class="btn btn-secondary" data-disable-with="Save" />') # rubocop:disable Layout/LineLength
+      end
+    end
+
+    context 'when title_key is provided' do
+      it 'renders a submit button with the provided text' do
+        result = nil
+
+        helper.simple_form_for(proponent, url: '/proponents/new') do |f|
+          result = helper.submit_button(f, 'Custom Text')
+        end
+
+        expect(result).to include('<div class="d-flex justify-content-end my-2">')
+        expect(result).to include('<input type="submit" name="commit" value="Custom Text" class="btn btn-secondary" data-disable-with="Custom Text" />') # rubocop:disable Layout/LineLength
+        expect(result).to include('Custom Text')
+      end
     end
   end
 

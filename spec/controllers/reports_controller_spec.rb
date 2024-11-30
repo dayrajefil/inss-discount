@@ -4,6 +4,12 @@
 require 'rails_helper'
 
 RSpec.describe ReportsController, type: :controller do
+  let(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
+
   describe 'GET #proponent_salary' do
     before do
       create(:proponent, salary: 500.00)

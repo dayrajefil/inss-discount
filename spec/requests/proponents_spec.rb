@@ -4,8 +4,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Proponents', type: :request do
+  let(:user) { create(:user) }
   let!(:proponent1) { create(:proponent) }
   let!(:proponent2) { create(:proponent) }
+
+  before do
+    sign_in user
+  end
 
   describe 'GET /index' do
     it 'returns a successful response' do

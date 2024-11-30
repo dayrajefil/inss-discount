@@ -4,6 +4,12 @@
 require 'rails_helper'
 
 RSpec.describe ProponentsController, type: :controller do
+  let(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
+
   let(:valid_attributes) do
     {
       name: 'John Doe',
