@@ -1,3 +1,16 @@
+# frozen_string_literal: true
+
+# ProponentsController gerencia as ações relacionadas aos proponentes no sistema.
+# Ele permite a criação, atualização, visualização, exclusão e listagem de proponentes,
+# além de calcular o valor do INSS com base no salário do proponente.
+#
+# Métodos como `create` e `update` incluem a criação de um job para o cálculo de
+# salário com desconto, e `inss_amount` realiza o cálculo do INSS e retorna o valor
+# em formato monetário.
+#
+# As ações de edição e destruição também são gerenciadas por este controlador,
+# permitindo modificações e exclusões seguras de registros de proponentes.
+#
 class ProponentsController < ApplicationController
   include ActionView::Helpers::NumberHelper
 
@@ -65,13 +78,15 @@ class ProponentsController < ApplicationController
   end
 
   def transform_to_type
-    if params[:proponent][:salary].present?
-      params[:proponent][:salary] =
-        params[:proponent][:salary].tr('.', '').tr(',', '.')
-    end
+    transform_salary if params[:proponent][:salary].present?
+    transform_inss if params[:proponent][:inss].present?
+  end
 
-    return unless params[:proponent][:inss].present?
+  def transform_salary
+    params[:proponent][:salary] = params[:proponent][:salary].tr('.', '').tr(',', '.')
+  end
 
+  def transform_inss
     params[:proponent][:inss] = params[:proponent][:inss].tr('.', '').tr(',', '.')
   end
 

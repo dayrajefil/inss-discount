@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config/environment.rb
 
 # Load the Rails application.

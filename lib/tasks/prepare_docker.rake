@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # lib/tasks/prepare_docker.rake
 
 namespace :docker do

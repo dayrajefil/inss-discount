@@ -1,4 +1,5 @@
-# config/application.rb
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -6,6 +7,13 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module InssDiscount
+  # InssDiscount::Application é a classe principal que configura o aplicativo Rails.
+  # Ela define configurações como o fuso horário, a localidade, o carregamento de arquivos de idiomas,
+  # o caminho de carregamento automático para os serviços, e a codificação de caracteres.
+  #
+  # As configurações de idioma e fuso horário são específicas para o Brasil, e a aplicação está configurada
+  # para usar o idioma português do Brasil como padrão.
+  #
   class Application < Rails::Application
     config.load_defaults 7.1
 

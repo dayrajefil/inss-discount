@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/rails_helper.rb
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

@@ -1,8 +1,8 @@
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/Documentation:
+Metrics/AbcSize:
   Enabled: false
 
 Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
   Enabled: false

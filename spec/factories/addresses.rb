@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/factories/addresses.rb
 FactoryBot.define do
   factory :address do

@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+# CreateAddresses é uma migração responsável por criar a tabela `addresses` no banco de dados.
+# A tabela inclui campos para o código postal (zip_code), rua (street), número (number),
+# complemento (complement), bairro (neighborhood), cidade (city) e estado (state), além dos
+# campos padrão de timestamps (created_at e updated_at).
+#
 class CreateAddresses < ActiveRecord::Migration[7.1]
   def change
     create_table :addresses do |t|

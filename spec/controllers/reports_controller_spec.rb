@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/controllers/reports_controller_spec.rb
 require 'rails_helper'
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/reports_controller.rb
 class ReportsController < ApplicationController
   def proponent_salary

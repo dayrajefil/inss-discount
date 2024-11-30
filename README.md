@@ -109,3 +109,11 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   ```
   bundle exec sidekiq
   ```
+
+## Rubocop
+
+  Para rodar Rubocop, utilize o comando:
+
+  ```
+  bundle exec rubocop
+  ```

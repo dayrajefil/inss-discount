@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/decorators/proponent_decorator_spec.rb
 require 'rails_helper'
 
@@ -66,7 +68,7 @@ RSpec.describe ProponentDecorator, type: :decorator do
   describe '#actions' do
     it 'returns the correct edit and delete links' do
       edit_link = '<a class="btn btn-secondary btn-sm" href="/proponents/999/edit">Editar</a>'
-      delete_link = '<form class="button_to" method="post" action="/proponents/999"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button data-turbo-confirm="Tem certeza que quer deletar esse registro?" class="btn btn-danger btn-sm" type="submit">Deletar</button></form>'
+      delete_link = '<form class="button_to" method="post" action="/proponents/999"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button data-turbo-confirm="Tem certeza que quer deletar esse registro?" class="btn btn-danger btn-sm" type="submit">Deletar</button></form>' # rubocop:disable Layout/LineLength
 
       expect(decorated_proponent.actions).to eq("#{edit_link} #{delete_link}")
     end

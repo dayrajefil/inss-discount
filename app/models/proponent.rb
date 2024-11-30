@@ -1,3 +1,11 @@
+# frozen_string_literal: true
+
+# A classe Proponent representa um proponente no sistema. Ela está associada a um endereço
+# e contém validações para garantir a presença de informações essenciais como nome, data de nascimento,
+# telefone e salário. O formato do telefone também é validado.
+#
+# A classe permite a criação ou atualização do endereço associado através de atributos aninhados.
+#
 class Proponent < ApplicationRecord
   belongs_to :address
 

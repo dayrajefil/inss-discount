@@ -1,3 +1,14 @@
+# frozen_string_literal: true
+
+# ProponentDecorator é uma classe que decora objetos de `Proponent`, oferecendo métodos adicionais
+# para exibir os dados de forma formatada na interface do usuário.
+#
+# Ela inclui métodos para formatar a data de nascimento, o salário e o INSS do proponente, além de
+# fornecer métodos auxiliares para exibir os valores sem a unidade monetária.
+#
+# A classe também inclui um método `actions` para gerar links de edição e exclusão, facilitando a
+# interação do usuário com os dados do proponente.
+#
 class ProponentDecorator < Draper::Decorator
   delegate_all
 

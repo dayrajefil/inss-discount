@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/factories/proponents.rb
 FactoryBot.define do
   factory :proponent do

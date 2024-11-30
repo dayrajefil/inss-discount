@@ -1,7 +1,13 @@
+# frozen_string_literal: true
+
+# ApplicationHelper contém métodos auxiliares que são usados para facilitar a criação
+# de elementos HTML dinâmicos nas views, como botões de submit, títulos de páginas e
+# links de ação. Esses métodos ajudam a manter as views mais limpas e reutilizáveis.
+#
 module ApplicationHelper
-  def submit_button(f)
+  def submit_button(form)
     content_tag(:div, class: 'd-flex justify-content-end my-2') do
-      f.submit t('actions.save'), class: 'btn btn-secondary'
+      form.submit t('actions.save'), class: 'btn btn-secondary'
     end
   end
 

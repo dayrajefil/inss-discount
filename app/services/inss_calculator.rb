@@ -1,6 +1,11 @@
-# app/services/inss_calculator.rb
-# https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal
+# frozen_string_literal: true
 
+# InssCalculator é uma classe responsável por calcular o valor da contribuição
+# do INSS com base no salário informado. Ela aplica as faixas de contribuição
+# de acordo com a tabela vigente e retorna o valor total do INSS a ser descontado.
+#
+#  https://www.gov.br/inss/pt-br/direitos-e-deveres/inscricao-e-contribuicao/tabela-de-contribuicao-mensal
+#
 class InssCalculator
   def self.calculate(salary)
     brackets = [
