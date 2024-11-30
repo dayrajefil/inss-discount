@@ -56,7 +56,7 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   docker exec -it inss-discount-web-1 bash
   ```
 
-4. Verifique se a variável de ambiente foi definida
+4. Verifique se a variável de ambiente foi definida (Opcional)
 
   ```
   echo $RAILS_ENV
@@ -109,6 +109,8 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   ```
   bundle exec sidekiq
   ```
+
+  Obs: Necessário para atualizar o salário líquido dos proponentes.
 
 ## Rubocop
 
