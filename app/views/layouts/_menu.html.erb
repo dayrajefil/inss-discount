@@ -1,0 +1,12 @@
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="navbar-nav ml-auto d-flex align-items-center">
+    <span class="navbar-text mx-2">
+      <%= link_to current_user&.username, edit_user_registration_path, class: 'nav-link' %>
+    </span>
+    <%= button_to destroy_user_session_path,
+                  class: 'nav-item btn btn-sm btn-outline-light mx-2',
+                  method: :delete, data: { turbo_confirm: t('messages.confirm.logout') } do %>
+      <%= t('actions.logout') %>
+    <% end %>
+  </div>
+</nav>

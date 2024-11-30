@@ -5,9 +5,9 @@
 # links de ação. Esses métodos ajudam a manter as views mais limpas e reutilizáveis.
 #
 module ApplicationHelper
-  def submit_button(form)
+  def submit_button(form, title_key = nil)
     content_tag(:div, class: 'd-flex justify-content-end my-2') do
-      form.submit t('actions.save'), class: 'btn btn-secondary'
+      form.submit(title_key || t('actions.save'), class: 'btn btn-secondary')
     end
   end
 

@@ -1,0 +1,58 @@
+<%= title_form('.title', :back) %>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :username, 
+                    required: true, 
+                    autofocus: true, 
+                    input_html: { class: 'form-control' } %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.input :email, 
+                    required: true,
+                    input_html: { class: 'form-control' } %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :password,
+                    placeholder: (t('devise.registrations.password_hint', count: @minimum_password_length) if @minimum_password_length),
+                    required: false,
+                    input_html: { autocomplete: "new-password", class: 'form-control' } %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password", class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :current_password,
+                    placeholder: t('devise.registrations.we_need_current_password_hint'),
+                    required: true,
+                    input_html: { autocomplete: "current-password", class: 'form-control' } %>
+      </div>
+    </div>
+
+    <%= submit_button f, t('actions.edit') %>
+  </div>
+<% end %>
+
+<div>
+  <%= button_to t('actions.cancel_account'),
+                registration_path(resource_name),
+                data: { turbo_confirm: t('messages.confirm.cancel_account') },
+                method: :delete, class: 'btn btn-danger' %>
+</div>

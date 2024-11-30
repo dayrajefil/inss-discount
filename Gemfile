@@ -10,6 +10,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.0'
 gem 'chartjs-rails'
 gem 'decorators'
+gem 'devise'
 gem 'draper'
 gem 'i18n'
 gem 'importmap-rails'

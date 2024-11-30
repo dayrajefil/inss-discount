@@ -138,6 +138,7 @@ pt-BR:
       too_short:
         one: 'é muito curto (mínimo: %{count} caracter)'
         other: 'é muito curto (mínimo: %{count} caracteres)'
+      username_format: somente letras minúsculas, underscores e pontos são permitidos
       wrong_length:
         one: não possui o tamanho esperado (%{count} caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
@@ -229,11 +230,20 @@ pt-BR:
   messages:
     confirm:
       delete: Tem certeza que quer deletar esse registro?
+      logout: Você tem certeza que quer sair?
+      cancel_account: Você tem certeza que quer deletar sua conta?
 
   actions:
     delete: Deletar
     edit: Editar
     save: Salvar
+    login: Entrar
+    sign_up: Registrar
+    logout: Sair
+    cancel_account: Cancelar conta
+    change_my_password: Atualize minha senha
+    forgot_your_password: Esqueceu sua senha?
+    send_me_reset_password: Envie-me instruções para redefinir a senha
 
   views:
     pagination:
