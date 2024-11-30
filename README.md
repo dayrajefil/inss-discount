@@ -56,10 +56,28 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
   docker exec -it inss-discount-web-1 bash
   ```
 
-4. Criar o banco de dados: Após preparar o ambiente Docker, crie o banco de dados com o comando:
+4. Verifique se a variável de ambiente foi definida
 
   ```
-  rails db:create
+  echo $RAILS_ENV
+  ```
+
+  Se não tiver sido definida, rode o comando:
+
+  ```
+  export RAILS_ENV=development
+  ```
+
+5. Rode as migrações
+
+  ```
+  rails db:migrate
+  ```
+
+6. Prepare a base de dados (Opcional)
+
+  ```
+  RAILS_ENV=development rails db:seed
   ```
 
 ## Rodando a aplicação
@@ -76,14 +94,18 @@ Antes de rodar a aplicação, é necessário configurar o ambiente Docker para g
 
   Os testes são executados usando RSpec. Para rodar a suíte de testes, execute:
 
-```
-RAILS_ENV=test rspec
-```
+  ```
+  RAILS_ENV=test rspec
+
+  ou
+
+  RAILS_ENV=test rspec --format documentation
+  ```
 
 ## Serviços
 
   Job queues (Sidekiq): Para rodar os jobs do Sidekiq, você pode iniciar o container do Sidekiq com o comando:
 
-```
-bundle exec sidekiq
-```
+  ```
+  bundle exec sidekiq
+  ```

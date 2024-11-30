@@ -4,16 +4,16 @@ default: &default
   pool: 5
   username: <%= ENV['DATABASE_USERNAME'] || 'postgres' %>
   password: <%= ENV['DATABASE_PASSWORD'] || 'postgres' %>
-  host: <%= ENV['DATABASE_HOST'] || 'db' %>
+  host: db
 
 development:
   <<: *default
-  database: <%= ENV['DATABASE_URL'] || 'inss_discount_development' %>
+  database: inss_discount_development
 
 test:
   <<: *default
-  database: <%= ENV['DATABASE_URL_TEST'] || 'inss_discount_test' %>
+  database: inss_discount_test
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_URL_PRODUCTION'] || 'inss_discount_production' %>
+  database: inss_discount_production
